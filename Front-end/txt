@@ -1,1 +1,29 @@
+import React, { useState } from 'react';  function TransferForm() {
+const [recipient, setRecipient] = useState('');
+const [amount, setAmount] = useState('');
+
+const handleTransfer = () => {
+// Add logic to handle the money transfer here
+};
+
+return (
+<div>
+<h2>Money Transfer</h2>
+<form>
+<input
+type="text"
+placeholder="Recipient"  value={recipient}
+onChange={(e) => setRecipient(e.target.value)}
+/>
+<inputtype="number"
+placeholder="Amount"  value={amount}
+onChange={(e) => setAmount(e.target.value)}
+/>
+<button onClick={handleTransfer}>Transfer</button>
+</form>
+</div>
+);
+}
+
+
 
