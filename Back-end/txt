@@ -1,1 +1,43 @@
+@Entity
+public class User {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+private String username;
+private double balance;
+// Getters and setters
+}
+@Entity
+public class Transaction {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+private Long senderId;
+private Long recipientId;
+private double amount;
+private LocalDateTime timestamp;
+// Getters and setters
+}
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+User findByUsername(String username);
+}
+@Repository
+public interface TransactionRepository extends JpaRepository<Transaction, Long> { List<Transaction> findBySenderIdOrRecipientIdOrderByTimestampDesc(Long senderId, Long recipientId);
+}
+Implement Service and Controller:
+Create services and controllers to handle user registration, money transfer, and transaction history.
+@Service
+public class UserService {
+// Implement user-related business logic
+}
+@Service
+public class TransactionService {
+// Implement transaction-related business logic
+}
+@RestController
+@RequestMapping("/api")
+public class MoneyTransferController {
+// Define REST endpoints for user registration, transfer, and transaction history}
+
 
